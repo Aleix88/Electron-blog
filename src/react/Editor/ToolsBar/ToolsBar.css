@@ -1,0 +1,46 @@
+/* Typo */
+.autosave-label {
+    font-size: .8rem;
+}
+
+/* Layout */
+
+.tool-bar {
+    height: 50px;
+    width: 100%;
+    border-bottom: 2px solid lightgray;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.save-button {
+    outline: none;
+    background-color: white;
+    border: 1px solid black;
+    padding: .3em .7em;
+    border-radius: 50px;
+    margin-right: 1em;
+}
+
+.save-button:hover {
+    background-color: var(--nav-blue);
+    color: white;
+}
+
+.autosave-label {
+    margin-right: 1em;
+    transition: opacity .5s;
+}
+
+.autosave-show {
+    opacity: 1;
+}
+
+.autosave-hide {
+    opacity: 0;
+}
+
+
+
+

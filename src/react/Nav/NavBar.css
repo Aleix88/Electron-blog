@@ -1,0 +1,76 @@
+/* Typo */
+
+.nav-title {
+    font-size: 1.3rem;
+}
+
+.nav-subtitle {
+    font-size: .8rem;
+    text-transform: uppercase;
+    font-weight: normal;
+}
+
+.post-label {
+    font-size: 1rem;
+}
+
+.add-post {
+    text-align: left;
+    font-size: .8rem;
+}
+
+/* LAYOUT */
+nav {
+    height: 100%;
+    min-width: 200px;
+    max-width: 200px;
+    background-color: var(--nav-blue);
+    padding: 1em;
+    overflow-y: auto;
+}
+
+.nav-title,
+.nav-subtitle,
+.post-label,
+.add-post {
+    color: white;
+    margin: 0;
+}
+
+.nav-subtitle {
+    margin-top: 1em;
+    color: darkgray;
+}
+
+.post-label,
+.add-post {
+    color: rgb(160, 168, 188);
+}
+
+.post-label {
+    cursor: initial;
+    margin-top: .7em;
+}
+
+.post-label-selected,
+.post-label:focus,
+.post-label:hover {
+    color: white;
+}
+
+.post-label-selected {
+    color: white;
+}
+
+.add-post {
+    margin-top: 1em;
+    padding: .5em .6em;
+    border: 1px dashed rgb(160, 168, 188);
+    border-radius: 5px;
+}
+
+.add-post:hover,
+.add-post:focus {
+    color: var(--link-blue);
+    border-color: var(--link-blue);
+}
