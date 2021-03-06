@@ -28,10 +28,37 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && cp -r electron/. build/electron",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "electron-dev": "export ELECTRON_START_URL=http://localhost:3000 && concurrently \"BROWSER=none npm start\" \"wait-on http://localhost:3000 && electron .\""
+    "updateIcons": "cp -r icons build",
+    "electron-dev": "export ELECTRON_START_URL=http://localhost:3000 && concurrently \"BROWSER=none npm start\" \"wait-on http://localhost:3000 && electron .\"",
+    "package-mac": "electron-builder build --mac -c.extraMetadata.main=build/electron/electron-starter.js --publish never",
+    "package-win": "electron-builder build --win -c.extraMetadata.main=build/electron/electron-starter.js --publish never",
+    "package-all": "electron-builder build --mac --win -c.extraMetadata.main=build/electron/electron-starter.js --publish never"
+  },
+  "build": {
+    "productName": "BlogEditor",
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ],
+    "extraResources": [
+      "libs/*"
+    ],
+    "mac": {
+      "target": "dmg",
+      "icon": "build/icons/mac/icon.icns"
+    },
+    "win": {
+      "target": "portable",
+      "icon": "build/icons/win/icon.ico"
+    },
+    "publish": {
+      "provider": "github",
+      "repo": "BlogEditor",
+      "owner": "Aleix88"
+    }
   },
   "eslintConfig": {
     "extends": [
@@ -53,6 +80,7 @@
   },
   "devDependencies": {
     "concurrently": "^5.3.0",
+    "electron-builder": "^22.10.5",
     "electron-devtools-installer": "^3.1.1",
     "wait-on": "^5.2.1"
   },
