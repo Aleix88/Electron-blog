@@ -1,0 +1,20 @@
+.settings-page {
+    padding: 2em;
+    width: 100%;
+}
+
+.title-section {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.settings-title {
+    margin-right: 1em;
+}
+
+.settings-input {
+    width: 100%;
+    padding: 0.3em 1em;
+    outline: none;
+}

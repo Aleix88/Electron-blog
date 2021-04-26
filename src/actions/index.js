@@ -43,10 +43,19 @@ const editData = (data) => {
     }
 }
 
+/* Autosave actions */
 const setAutosave = (autosaveOn) => {
     return {
         type: 'autosave/changeState',
         payload: autosaveOn
+    }
+}
+
+/* Settings actions */
+const setImageEndpoint = (endpoint) => {
+    return {
+        type: 'settings/image-endpoint',
+        payload: endpoint
     }
 }
 
@@ -57,5 +66,6 @@ export {
     selectPost,
     changeCurrentTitle,
     editData,
-    setAutosave
+    setAutosave,
+    setImageEndpoint
 } 

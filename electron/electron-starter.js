@@ -1,8 +1,10 @@
+
+const isDev = false
+
 // Modules to control application life and create native browser window
-const { default: installExtension, REDUX_DEVTOOLS } = require('electron-devtools-installer')
+// const { default: installExtension, REDUX_DEVTOOLS } = require('electron-devtools-installer')
 const {app, BrowserWindow, Menu} = require('electron')
 const path = require('path')
-const isDev = false
 
 function createWindow () {
   // Create the browser window.
@@ -32,9 +34,11 @@ function createWindow () {
 app.whenReady().then(() => {
   createWindow()
 
-  installExtension(REDUX_DEVTOOLS)
-        .then((name) => console.log(`Added Extension:  ${name}`))
-        .catch((err) => console.log('An error occurred: ', err));
+  // if (isDev === true) {
+  //   installExtension(REDUX_DEVTOOLS)
+  //   .then((name) => console.log(`Added Extension:  ${name}`))
+  //   .catch((err) => console.log('An error occurred: ', err));
+  // }
 
   app.on('activate', function () {
     // On macOS it's common to re-create a window in the app when the

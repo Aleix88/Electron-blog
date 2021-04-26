@@ -8,7 +8,8 @@ import {storageDirName, dataFileName} from '../Utils/Config'
 import {stopAutoSave, save, mapTitle, readPosts, saveImage} from '../Editor/saveManager'
 
 import './NavBar.css'
-
+import IconButton, {INFO_ICON} from '../Components/IconButton'
+import {routes} from '../constants.js'
 
 const NavBar = (props) => {
 
@@ -68,7 +69,10 @@ const NavBar = (props) => {
 
     return (
         <nav>
-            <h1 className="nav-title unselectable">Blog editor</h1>
+            <div className = "nav-top">
+                <h1 className="nav-title unselectable">Blog editor</h1>
+                <IconButton icon={INFO_ICON} href={routes.settings} color="white"/>
+            </div>
             <div 
                 className="add-post unselectable"
                 onClick={addPostClicked}

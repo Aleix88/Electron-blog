@@ -6,9 +6,8 @@ import ToolsBar from './ToolsBar/ToolsBar'
 import {connect} from 'react-redux'
 import {changeCurrentTitle, editTitle, setAutosave, editData} from '../../actions'
 import {startAutoSave, save, stopAutoSave, mapTitle} from './saveManager'
-import {serverURL} from '../../credentials'
 import fileManager from '../Utils/FileManager';
-import {storageDirName, dataFileName} from '../Utils/Config'
+import {storageDirName, dataFileName, settingsFileName} from '../Utils/Config'
 
 import './EditorPage.css'
 
@@ -17,7 +16,8 @@ const INACTIVE_TIME = 300000 //ms -> 5 min
 
 const mapStateToProps = (state => ({
     selectedPost: state.selectedPost,
-    posts: state.posts
+    posts: state.posts,
+    settings: state.settings
 }))
 
 const mapDispatchToProps = (dispatch => ({
@@ -67,7 +67,7 @@ class EditorPage extends Component {
     setupTools() {
         tools.image.config = {
             endpoints: {
-                byFile: serverURL + '/blogeditor/save-image'
+                byFile: this.props.settings.imageEndpoint + '/blogeditor/save-image'
             }
         }
         return tools

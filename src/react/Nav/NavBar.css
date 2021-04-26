@@ -37,6 +37,12 @@ nav {
     margin: 0;
 }
 
+.nav-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .nav-subtitle {
     margin-top: 1em;
     color: darkgray;
