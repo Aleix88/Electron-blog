@@ -1,6 +1,9 @@
 const {remote, shell} = window.require('electron')
 const {dialog, app} = remote
 const fs = remote.require('fs')
+const path = window.require('path');
+
+
 
 const createFile = (filePath, content, overwrite) => {
     return new Promise((resolve, reject) => {
@@ -77,6 +80,10 @@ const copyFile =  (src, dest) => {
     })
 }
 
+const joinPath = (...toJoin) => {
+    return path.join(...toJoin)
+}
+
 const revealInExplorer = (path) => {
     shell.showItemInFolder(path) 
 }
@@ -88,7 +95,8 @@ const fileManager = {
     readJSONFile,
     documentsPath,
     copyFile,
-    revealInExplorer
+    revealInExplorer,
+    joinPath
 }
 
 export default fileManager

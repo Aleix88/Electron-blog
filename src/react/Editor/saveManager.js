@@ -28,11 +28,14 @@ const stopAutoSave = () => {
 
 const save = (data) => {
     const json = JSON.stringify(data)
+    const path = FileManager.joinPath(
+        FileManager.documentsPath,
+        storageDirName,
+        data.id,
+        dataFileName
+    )
     return FileManager.createFile(
-        FileManager.documentsPath + '/' 
-        + storageDirName + '/'
-        + data.id + '/'
-        + dataFileName,
+        path,
         json,
         true
     )
@@ -40,9 +43,11 @@ const save = (data) => {
 
 const mapTitle = (id, title) => {
     return FileManager.createFile(
-        FileManager.documentsPath + '/' 
-        + storageDirName + '/'
-        + titlesFileName
+        FileManager.joinPath(
+            FileManager.documentsPath,
+            storageDirName,
+            titlesFileName
+        )
         ,
         "{}"
     )
@@ -56,9 +61,11 @@ const mapTitle = (id, title) => {
     })
     .then((jsonString) => {
         return FileManager.createFile(
-            FileManager.documentsPath + '/' 
-            + storageDirName + '/'
-            + titlesFileName,
+            FileManager.joinPath(
+                FileManager.documentsPath,
+                storageDirName,
+                titlesFileName
+            ),
             jsonString,
             true
         )
@@ -67,9 +74,11 @@ const mapTitle = (id, title) => {
 
 const readPosts = () => {
     return FileManager.readJSONFile(
-        FileManager.documentsPath + '/' 
-        + storageDirName + '/'
-        + titlesFileName
+        FileManager.joinPath(
+            FileManager.documentsPath,
+            storageDirName,
+            titlesFileName
+        )
     )
     .then((titles) => {
         let posts = []

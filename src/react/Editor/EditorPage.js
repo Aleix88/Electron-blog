@@ -115,11 +115,14 @@ class EditorPage extends Component {
 
     handlePublish() {
         this.handleManualSave()
+        const path = fileManager.joinPath(
+            fileManager.documentsPath,
+            storageDirName,
+            this.props.selectedPost.id,
+            dataFileName
+        )
         fileManager.revealInExplorer(
-            fileManager.documentsPath + '/' 
-            + storageDirName + '/'
-            + this.props.selectedPost.id + '/'
-            + dataFileName
+            path
         )
     }
 

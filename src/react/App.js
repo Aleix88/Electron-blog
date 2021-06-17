@@ -15,11 +15,12 @@ const App = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    FileManager.createFolder(FileManager.documentsPath + "/" + storageDirName)
-    FileManager.readJSONFile(
-      FileManager.documentsPath + '/' 
-    + storageDirName + '/' 
-    + settingsFileName)
+    FileManager.createFolder(FileManager.joinPath(FileManager.documentsPath, storageDirName))
+    FileManager.readJSONFile(FileManager.joinPath(
+      FileManager.documentsPath,  
+      storageDirName,
+      settingsFileName
+    ))
     .then((settings) => {
       console.log("Reading endpoint...")
       dispatch(setImageEndpoint(settings.imageEndpoint))
